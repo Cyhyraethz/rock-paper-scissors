@@ -9,27 +9,33 @@ function playRound(playerSelection, computerSelection) {
     let caseInsensitivePlayerSelection = lowerCasePlayerSelection.replace(lowerCasePlayerSelection[0], lowerCasePlayerSelection[0].toUpperCase());
     if (caseInsensitivePlayerSelection === 'Rock') {
         if (computerSelection === 'Rock') {
-            return "It's a tie! Both players chose rock"
+            console.log("It's a tie! Both players chose rock")
         } else if (computerSelection === 'Paper') {
-            return "You lose! Paper covers rock"
+            console.log("You lose! Paper covers rock")
+            return 0
         } else if (computerSelection === 'Scissors') {
-            return "You win! Rock crushes scissors!"
+            console.log("You win! Rock crushes scissors!")
+            return 1
         }
     } else if (caseInsensitivePlayerSelection === 'Paper') {
         if (computerSelection === 'Rock') {
-            return "You win! Paper covers rock"
+            console.log("You win! Paper covers rock")
+            return 1
         } else if (computerSelection === 'Paper') {
-            return "It's a tie! Both players chose paper"
+            console.log("It's a tie! Both players chose paper")
         } else if (computerSelection === 'Scissors') {
-            return "You lose! Scissors cuts paper"
+            console.log("You lose! Scissors cuts paper")
+            return 0
         }
     } else if (caseInsensitivePlayerSelection === 'Scissors') {
         if (computerSelection === 'Rock') {
-            return "You lose! Rock crushes scissors"
+            console.log("You lose! Rock crushes scissors")
+            return 0
         } else if (computerSelection === 'Paper') {
-            return "You win! Scissors cuts paper"
+            console.log("You win! Scissors cuts paper")
+            return 1
         } else if (computerSelection === 'Scissors') {
-            return "It's a tie! Both players chose scissors"
+            console.log("It's a tie! Both players chose scissors")
         }
     }
 }
