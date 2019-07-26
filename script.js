@@ -9,33 +9,33 @@ function playRound(playerSelection, computerSelection) {
     let caseInsensitivePlayerSelection = lowerCasePlayerSelection.replace(lowerCasePlayerSelection[0], lowerCasePlayerSelection[0].toUpperCase());
     if (caseInsensitivePlayerSelection === 'Rock') {
         if (computerSelection === 'Rock') {
-            console.log("It's a tie! Both players chose rock")
+            console.log("This round is a tie! Both players chose rock")
         } else if (computerSelection === 'Paper') {
-            console.log("You lose! Paper covers rock")
+            console.log("You lost this round! Paper covers rock")
             return 0
         } else if (computerSelection === 'Scissors') {
-            console.log("You win! Rock crushes scissors!")
+            console.log("You won this round! Rock crushes scissors!")
             return 1
         }
     } else if (caseInsensitivePlayerSelection === 'Paper') {
         if (computerSelection === 'Rock') {
-            console.log("You win! Paper covers rock")
+            console.log("You won this round! Paper covers rock")
             return 1
         } else if (computerSelection === 'Paper') {
-            console.log("It's a tie! Both players chose paper")
+            console.log("This round is a tie! Both players chose paper")
         } else if (computerSelection === 'Scissors') {
-            console.log("You lose! Scissors cuts paper")
+            console.log("You lost this round! Scissors cuts paper")
             return 0
         }
     } else if (caseInsensitivePlayerSelection === 'Scissors') {
         if (computerSelection === 'Rock') {
-            console.log("You lose! Rock crushes scissors")
+            console.log("You lost this round! Rock crushes scissors")
             return 0
         } else if (computerSelection === 'Paper') {
-            console.log("You win! Scissors cuts paper")
+            console.log("You won this round! Scissors cuts paper")
             return 1
         } else if (computerSelection === 'Scissors') {
-            console.log("It's a tie! Both players chose scissors")
+            console.log("This round is a tie! Both players chose scissors")
         }
     }
 }
@@ -58,11 +58,11 @@ function game() {
         }
     }
     if (playerScore > computerScore) {
-        console.log(`You won! The final score is ${playerScore} to ${computerScore}`)
+        console.log(`You won the game! The final score is ${playerScore} to ${computerScore}`)
     } else if (computerScore > playerScore) {
-        console.log(`You lost! The final score is ${playerScore} to ${computerScore}`)
+        console.log(`You lost the game! The final score is ${playerScore} to ${computerScore}`)
     } else {
-        console.log(`It's a tie! The final score is ${playerScore} to ${computerScore}`)
+        console.log(`The game is a tie! The final score is ${playerScore} to ${computerScore}`)
     }
 }
 
