@@ -1,6 +1,5 @@
-const rockPaperScissors = ['Rock', 'Paper', 'Scissors'];
-
 function computerPlay() {
+    let rockPaperScissors = ['Rock', 'Paper', 'Scissors'];
     return rockPaperScissors[Math.floor(Math.random() * 3)];
 }
 
@@ -9,9 +8,7 @@ function playRound(playerSelection, computerSelection) {
     let lowerCasePlayerSelection = playerSelection.toLowerCase();
     if (lowerCasePlayerSelection === 'rock' || lowerCasePlayerSelection === 'paper' || lowerCasePlayerSelection === 'scissors') {
         caseInsensitivePlayerSelection = lowerCasePlayerSelection.replace(lowerCasePlayerSelection[0], lowerCasePlayerSelection[0].toUpperCase());
-    } else {
-        alert('Error. You must enter rock, paper, or scissors.')
-    }    
+    }
     if (caseInsensitivePlayerSelection === 'Rock') {
         if (computerSelection === 'Rock') {
             console.log(`This round is a tie! Both players chose rock.`)
