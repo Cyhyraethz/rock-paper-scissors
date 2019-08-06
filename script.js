@@ -1,3 +1,33 @@
+let playerScore = 0;
+let computerScore = 0;
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+const results = document.querySelector('#results');
+
+rock.addEventListener('click', playButton);
+paper.addEventListener('click', playButton);
+scissors.addEventListener('click', playButton);
+
+function playButton() {
+    if (playerScore < 5 && computerScore < 5) {
+        playRound(this.value, computerPlay());
+    }
+    if (playerScore == 5) {
+        const p = document.createElement('p');
+        p.textContent = `You won the game! The final score is Player: ${playerScore}, Computer: ${computerScore}.`;
+        p.style.fontWeight = 900;
+        results.appendChild(p);
+        playerScore++;
+    } else if (computerScore == 5) {
+        const p = document.createElement('p');
+        p.textContent = `You lost the game! The final score is Player: ${playerScore}, Computer: ${computerScore}.`;
+        p.style.fontWeight = 900;
+        results.appendChild(p);
+        computerScore++;
+    }
+}
+
 function computerPlay() {
     let rockPaperScissors = ['Rock', 'Paper', 'Scissors'];
     return rockPaperScissors[Math.floor(Math.random() * 3)];
@@ -11,67 +41,51 @@ function playRound(playerSelection, computerSelection) {
     }
     if (caseInsensitivePlayerSelection === 'Rock') {
         if (computerSelection === 'Rock') {
-            console.log(`This round is a tie! Both players chose rock.`)
-            return 'tie'
+            const p = document.createElement('p');
+            p.textContent = `This round is a tie! Both players chose rock. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
         } else if (computerSelection === 'Paper') {
-            console.log(`You lost this round! Paper covers rock.`)
-            return 'lost'
+            computerScore++;
+            const p = document.createElement('p');
+            p.textContent = `You lost this round! Paper covers rock. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
         } else if (computerSelection === 'Scissors') {
-            console.log(`You won this round! Rock crushes scissors.`)
-            return 'won'
+            playerScore++;
+            const p = document.createElement('p');
+            p.textContent = `You won this round! Rock crushes scissors. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
         }
     } else if (caseInsensitivePlayerSelection === 'Paper') {
         if (computerSelection === 'Rock') {
-            console.log(`You won this round! Paper covers rock.`)
-            return 'won'
+            const p = document.createElement('p');
+            p.textContent = `You won this round! Paper covers rock. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
+            playerScore++;
         } else if (computerSelection === 'Paper') {
-            console.log(`This round is a tie! Both players chose paper.`)
-            return 'tie'
+            const p = document.createElement('p');
+            p.textContent = `This round is a tie! Both players chose paper. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
         } else if (computerSelection === 'Scissors') {
-            console.log(`You lost this round! Scissors cuts paper.`)
-            return 'lost'
+            const p = document.createElement('p');
+            p.textContent = `You lost this round! Scissors cuts paper. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
+            computerScore++;
         }
     } else if (caseInsensitivePlayerSelection === 'Scissors') {
         if (computerSelection === 'Rock') {
-            console.log(`You lost this round! Rock crushes scissors.`)
-            return 'lost'
-        } else if (computerSelection === 'Paper') {
-            console.log(`You won this round! Scissors cuts paper.`)
-            return 'won'
-        } else if (computerSelection === 'Scissors') {
-            console.log(`This round is a tie! Both players chose scissors.`)
-            return 'tie'
-        }
-    }
-}
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5;) {
-        let playerSelection = prompt('Please enter rock, paper, or scissors.');
-        let computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
-        if (result === 'lost') {
-            i++;
+            const p = document.createElement('p');
+            p.textContent = `You lost this round! Rock crushes scissors. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
             computerScore++;
-            console.log(`Player: ${playerScore}, Computer: ${computerScore}.`)
-        } else if (result === 'won') {
-            i++;
+        } else if (computerSelection === 'Paper') {
+            const p = document.createElement('p');
+            p.textContent = `You won this round! Scissors cuts paper. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
             playerScore++;
-            console.log(`Player: ${playerScore}, Computer: ${computerScore}.`)
-        } else if (result === 'tie') {
-            i++;
-            console.log(`Player: ${playerScore}, Computer: ${computerScore}.`)
+        } else if (computerSelection === 'Scissors') {
+            const p = document.createElement('p');
+            p.textContent = `This round is a tie! Both players chose scissors. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
+            results.appendChild(p);
         }
     }
-    if (playerScore > computerScore) {
-        console.log(`You won the game! The final score is Player: ${playerScore}, Computer: ${computerScore}.`)
-    } else if (computerScore > playerScore) {
-        console.log(`You lost the game! The final score is Player: ${playerScore}, Computer: ${computerScore}.`)
-    } else {
-        console.log(`The game is a tie! The final score is Player: ${playerScore}, Computer: ${computerScore}.`)
-    }
 }
-
-game();
