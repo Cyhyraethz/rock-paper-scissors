@@ -1,0 +1,46 @@
+body {
+    background-image: url('images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
+.empty-space {
+    height: 10px;
+    width: 10px;
+}
+
+#button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#text-wrapper {
+    text-align: center;
+    border-radius: 50%;
+}
+
+#results {
+    width: 350px;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+    background: rgba(252, 252, 252, 0.9);
+}
+
+p {
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+img,
+button {
+    opacity: 0.9;
+    outline: none;
+    border-radius: 50%;
+}

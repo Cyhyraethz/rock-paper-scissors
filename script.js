@@ -1,9 +1,15 @@
 let playerScore = 0;
 let computerScore = 0;
+const score = document.createElement('p');
 const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 const results = document.querySelector('#results');
+const instructions = document.createElement('p');
+const roundResult = document.createElement('p');
+
+instructions.innerHTML = 'Rock Paper Scissors against the computer. <br> First to win five rounds wins the game.';
+results.appendChild(instructions);
 
 rock.addEventListener('click', playButton);
 paper.addEventListener('click', playButton);
@@ -15,14 +21,12 @@ function playButton() {
     }
     if (playerScore == 5) {
         const p = document.createElement('p');
-        p.textContent = `You won the game! The final score is Player: ${playerScore}, Computer: ${computerScore}.`;
-        p.style.fontWeight = 900;
+        p.textContent = `You won the game!`;
         results.appendChild(p);
         playerScore++;
     } else if (computerScore == 5) {
         const p = document.createElement('p');
-        p.textContent = `You lost the game! The final score is Player: ${playerScore}, Computer: ${computerScore}.`;
-        p.style.fontWeight = 900;
+        p.textContent = `You lost the game!`;
         results.appendChild(p);
         computerScore++;
     }
@@ -41,51 +45,60 @@ function playRound(playerSelection, computerSelection) {
     }
     if (caseInsensitivePlayerSelection === 'Rock') {
         if (computerSelection === 'Rock') {
-            const p = document.createElement('p');
-            p.textContent = `This round is a tie! Both players chose rock. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'This round is a tie! Both players chose rock.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         } else if (computerSelection === 'Paper') {
             computerScore++;
-            const p = document.createElement('p');
-            p.textContent = `You lost this round! Paper covers rock. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'You lost this round! Paper covers rock.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         } else if (computerSelection === 'Scissors') {
             playerScore++;
-            const p = document.createElement('p');
-            p.textContent = `You won this round! Rock crushes scissors. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'You won this round! Rock crushes scissors.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         }
     } else if (caseInsensitivePlayerSelection === 'Paper') {
         if (computerSelection === 'Rock') {
-            const p = document.createElement('p');
-            p.textContent = `You won this round! Paper covers rock. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
             playerScore++;
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'You won this round! Paper covers rock.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         } else if (computerSelection === 'Paper') {
-            const p = document.createElement('p');
-            p.textContent = `This round is a tie! Both players chose paper. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'This round is a tie! Both players chose paper.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         } else if (computerSelection === 'Scissors') {
-            const p = document.createElement('p');
-            p.textContent = `You lost this round! Scissors cuts paper. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
             computerScore++;
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'You lost this round! Scissors cuts paper.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         }
     } else if (caseInsensitivePlayerSelection === 'Scissors') {
         if (computerSelection === 'Rock') {
-            const p = document.createElement('p');
-            p.textContent = `You lost this round! Rock crushes scissors. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
             computerScore++;
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'You lost this round! Rock crushes scissors.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         } else if (computerSelection === 'Paper') {
-            const p = document.createElement('p');
-            p.textContent = `You won this round! Scissors cuts paper. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
             playerScore++;
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'You won this round! Scissors cuts paper.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         } else if (computerSelection === 'Scissors') {
-            const p = document.createElement('p');
-            p.textContent = `This round is a tie! Both players chose scissors. The current score is Player: ${playerScore}, Computer: ${computerScore}.`;
-            results.appendChild(p);
+            score.textContent = `[ Player: ${playerScore} ][ Computer: ${computerScore} ]`;
+            roundResult.textContent = 'This round is a tie! Both players chose scissors.';
+            results.appendChild(roundResult);
+            results.appendChild(score);
         }
     }
 }

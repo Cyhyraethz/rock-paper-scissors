@@ -7,11 +7,21 @@
 </head>
 
 <body>
-    <button id='rock' value='rock'>Rock</button>
-    <button id='paper' value='paper'>Paper</button>
-    <button id='scissors' value='scissors'>Scissors</button>
+    <div class=empty-space></div>
 
-    <div id='results'></div>
+    <div id='button-wrapper'>
+        <button id='rock' data-key='49' value='rock'><img src="images/rock.png" alt="Rock"></button>
+        <div class='empty-space'></div>
+        <button id='paper' data-key='50' value='paper'><img src="images/paper.png" alt="Paper"></button>
+        <div class='empty-space'></div>
+        <button id='scissors' data-key='51' value='scissors'><img src="images/scissors.png" alt="Scissors"></button>
+    </div>
+
+    <div class='empty-space'></div>
+
+    <div id='text-wrapper'>
+        <div id='results'></div>
+    </div>
 
     <script src="script.js"></script>
 </body>
