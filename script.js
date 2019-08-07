@@ -68,11 +68,15 @@ function playButton() {
         p.textContent = `You won the game!`;
         results.appendChild(p);
         playerScore++;
+        results.appendChild(reload);
+        results.appendChild(space);
     } else if (computerScore == 5) {
         const p = document.createElement('p');
         p.textContent = `You lost the game!`;
         results.appendChild(p);
         computerScore++;
+        results.appendChild(reload);
+        results.appendChild(space);
     }
 }
 
